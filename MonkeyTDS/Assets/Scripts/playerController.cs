@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float moveSpeed;
+    public GunController gun;
 
     Camera mainCamera;
     Rigidbody rb;
@@ -32,6 +33,17 @@ public class playerController : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
 
             transform.LookAt(new Vector3(pointToLook.x,transform.position.y,pointToLook.z));
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            gun.isFiring = true;
+
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            gun.isFiring = false;
         }
     }
 
